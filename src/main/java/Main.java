@@ -3,8 +3,6 @@ import daos.ClientDAO;
 import daos.StatusDAO;
 import entities.Client;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         ClientDAO clientDAO = new ClientDAO();
@@ -17,10 +15,8 @@ public class Main {
 
         clientDAO.joinClient();
 
-        Client client1 = clientDAO.findById(0);
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Enter new clients age:");
-//        client1.setAge(scanner.nextInt());
+//        Client client1 = clientDAO.findById(7);
+//        client1.setAge(16);
 //        clientDAO.update(client1);
 //        System.out.println(client1);
 

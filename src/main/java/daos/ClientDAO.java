@@ -157,9 +157,6 @@ public class ClientDAO {
     }
 
     public Client findById(int id) {
-        System.out.println("Enter clients id:");
-        Scanner scanner = new Scanner(System.in);
-        id = scanner.nextInt();
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_ID)) {
             statement.setInt(1, id);
