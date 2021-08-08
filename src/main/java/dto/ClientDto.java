@@ -1,16 +1,17 @@
-package entities;
+package dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
 @Getter
+@Setter
 @ToString
-public class Client_status {
-//    private int client_id;
-//    private int status_id;
+public class ClientDto {
+    private int id;
     private String name;
     private String email;
-    private String alias;
+    private Long phone;
+    private String about;
+    private int age;
 }

@@ -3,12 +3,11 @@ package entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-@Getter
+
 @Setter
+@Getter
 @ToString
-public class Account {
-    private int id;
+public class ClientStatus {
     private int clientId;
-    private  String number;
-    private double value;
+    private int statusId;
 }
