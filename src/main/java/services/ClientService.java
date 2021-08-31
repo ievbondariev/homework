@@ -10,8 +10,8 @@ import java.util.List;
 public class ClientService {
     private final ClientDAO clientDao;
 
-    public ClientService() {
-        clientDao = new ClientDAO();
+    public ClientService(ClientDAO clientDAO) {
+        this.clientDao = clientDAO;
     }
 
     public List<ClientDto> findAllClients() {
