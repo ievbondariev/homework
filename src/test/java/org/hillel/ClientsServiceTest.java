@@ -2,7 +2,6 @@ package org.hillel;
 
 import daos.ClientDAO;
 import dto.ClientDto;
-import entities.Client;
 import services.ClientService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -19,7 +18,7 @@ import static org.mockito.Mockito.when;
 public class ClientsServiceTest {
 
     @ExtendWith(MockitoExtension.class)
-    public class ClientServiceTest {
+    public static class ClientServiceTest {
 
         @Mock
         private ClientDAO clientDAO;
@@ -33,17 +32,17 @@ public class ClientsServiceTest {
         @Test
         public void findAllClients() {
 
-            Client client = new Client();
-            client.setId(1);
-            client.setName("Name");
-            client.setEmail("1@ukr.net");
-            client.setPhone(380958089097L);
-            client.setAbout("client");
-            client.setAge(20);
+            ClientDto clientDto = new ClientDto();
+            clientDto.setId(1);
+            clientDto.setName("Name");
+            clientDto.setEmail("1@ukr.net");
+            clientDto.setPhone(380958089097L);
+            clientDto.setAbout("client");
+            clientDto.setAge(20);
 
-            when(client.findAllClients).thenReturn(Collections.singletonList(client));
+            when(clientService.findAllClients()).thenReturn(Collections.singletonList(clientDto));
 
-            List<ClientDto> actualResult = client.findAllClients();
+            List<ClientDto> actualResult = clientService.findAllClients();
 
             assertEquals(1, actualResult.size());
             assertEquals(1, actualResult.get(0).getId());
@@ -54,4 +53,5 @@ public class ClientsServiceTest {
             assertEquals(20, actualResult.get(0).getAge());
         }
     }
+}
 

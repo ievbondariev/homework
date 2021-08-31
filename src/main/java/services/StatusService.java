@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatusService {
-    private final StatusDAO statusDao;
+    private final StatusDAO statusDAO;
 
     public StatusService() {
-        statusDao = new StatusDAO();
+        statusDAO = new StatusDAO();
     }
 
     public List<StatusDto> findAllStatuses() {
-        List<Status> statuses = statusDao.findAllStatuses();
+        List<Status> statuses = statusDAO.findAllStatuses();
         List<StatusDto> statusDtos = new ArrayList<>();
 
         for (Status status : statuses) {

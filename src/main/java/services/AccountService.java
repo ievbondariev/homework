@@ -8,10 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountService {
-    private final AccountDAO accountDao;
+    private AccountDAO accountDao;
+
+    public AccountService(AccountDAO accountDAO) {
+        this.accountDao = accountDAO;
+    }
 
     public AccountService() {
-        accountDao = new AccountDAO();
     }
 
     public List<AccountDto> findAllAccounts() {

@@ -8,14 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientStatusService {
-    private final ClientStatusDAO clientStatusDao;
+
+    private ClientStatusDAO clientStatusDAO;
+
+    public ClientStatusService(ClientStatusDAO clientStatusDAO) {
+        this.clientStatusDAO = clientStatusDAO;
+    }
 
     public ClientStatusService() {
-        clientStatusDao = new ClientStatusDAO();
+
     }
 
     public List<ClientStatusDto> findAllClientStatus() {
-        List<ClientStatus> clientStatuses = clientStatusDao.findAllClientStatus();
+        List<ClientStatus> clientStatuses = clientStatusDAO.findAllClientStatus();
         List<ClientStatusDto> clientStatusDtos = new ArrayList<>();
 
         for (ClientStatus clientStatus : clientStatuses) {
