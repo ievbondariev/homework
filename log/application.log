@@ -1,0 +1,7 @@
+2021-09-14 00:53:34 DEBUG AccountDAO:96 - Find by value executed
+2021-09-14 00:53:34 DEBUG ClientDAO:46 - Join client executed
+2021-09-14 00:53:34 INFO  Main:24 - Class works
+2021-09-14 00:54:13 DEBUG ClientDAO:96 - Find all clients executed
+2021-09-14 00:54:13 DEBUG AccountDAO:96 - Find by value executed
+2021-09-14 00:54:13 DEBUG ClientDAO:46 - Join client executed
+2021-09-14 00:54:13 INFO  Main:24 - Class works

@@ -3,15 +3,20 @@ package services;
 import daos.AccountDAO;
 import dto.AccountDto;
 import entities.Account;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AccountService {
+
+    private static final Logger logger = Logger.getLogger(AccountService.class);
+
     private AccountDAO accountDao;
 
     public AccountService(AccountDAO accountDAO) {
         this.accountDao = accountDAO;
+        logger.debug("AccountDao configured");
     }
 
     public AccountService() {
@@ -29,6 +34,7 @@ public class AccountService {
             accountDto.setValue(account.getValue());
             accountDtos.add(accountDto);
         }
+        logger.debug("AccountService started");
         return accountDtos;
     }
 }

@@ -2,12 +2,16 @@ package daos;
 
 import database.Database;
 import entities.Status;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatusDAO {
+
+    private static final Logger logger = Logger.getLogger(StatusDAO.class);
+
     private static final String STATUSES = "SELECT * FROM statuses";
     private static final String INSERT_TO_STATUSES = "INSERT INTO statuses (alias, description) VALUES(?,?)";
     private static final String DELETE_FROM_STATUSES = "DELETE from statuses where id=?";
@@ -32,6 +36,7 @@ public class StatusDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Find all status executed");
         return resultList;
     }
 

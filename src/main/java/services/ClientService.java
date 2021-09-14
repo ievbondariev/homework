@@ -3,18 +3,24 @@ package services;
 import daos.ClientDAO;
 import dto.ClientDto;
 import entities.Client;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientService {
+
+    private static final Logger logger = Logger.getLogger(ClientService.class);
+
     private  ClientDAO clientDao;
 
     public ClientService(ClientDAO clientDAO) {
         this.clientDao = clientDAO;
+        logger.debug("ClientDao configured");
     }
 
     public ClientService() {
+//        this.clientDAO = new ClientDAO();
     }
 
     public List<ClientDto> findAllClients() {
@@ -32,6 +38,7 @@ public class ClientService {
 
             clientDtos.add(clientDto);
         }
+        logger.debug("ClientService started");
         return clientDtos;
     }
 }

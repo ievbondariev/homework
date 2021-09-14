@@ -3,15 +3,20 @@ package services;
 import daos.StatusDAO;
 import dto.StatusDto;
 import entities.Status;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatusService {
+
+    private static final Logger logger = Logger.getLogger(StatusService.class);
+
     private final StatusDAO statusDAO;
 
     public StatusService() {
         statusDAO = new StatusDAO();
+        logger.debug("StatusDao configured");
     }
 
     public List<StatusDto> findAllStatuses() {
@@ -25,6 +30,7 @@ public class StatusService {
             statusDto.setDescription(status.getDescription());
             statusDtos.add(statusDto);
         }
+        logger.debug("StatusService configured");
         return statusDtos;
     }
 }

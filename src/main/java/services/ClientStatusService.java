@@ -6,13 +6,17 @@ import entities.ClientStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class ClientStatusService {
+
+    private static final Logger logger = Logger.getLogger(ClientStatusService.class);
 
     private ClientStatusDAO clientStatusDAO;
 
     public ClientStatusService(ClientStatusDAO clientStatusDAO) {
         this.clientStatusDAO = clientStatusDAO;
+        logger.debug("ClientStatusDao configured");
     }
 
     public ClientStatusService() {
@@ -29,6 +33,7 @@ public class ClientStatusService {
             clientStatusDto.setStatusId(clientStatus.getStatusId());
             clientStatusDtos.add(clientStatusDto);
         }
+        logger.debug("ClientStatusService started");
         return clientStatusDtos;
     }
 }

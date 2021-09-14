@@ -4,11 +4,15 @@ import database.Database;
 import entities.Account;
 import entities.Client;
 import entities.ClientStatus;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.*;
 
 public class ClientDAO {
+
+    private  static final Logger logger = Logger.getLogger(ClientDAO.class);
+
     private static final String CLIENTS = "SELECT * FROM clients order by id";
     private static final String INSERT_TO_CLIENTS = "INSERT INTO clients (name, email, phone, about) VALUES(?,?,?,?)";
     private static final String DELETE_FROM_CLIENTS = "DELETE from clients where id=?";
@@ -39,6 +43,7 @@ public class ClientDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Join client executed");
         return resultList;
     }
 
@@ -62,6 +67,7 @@ public class ClientDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Find by phone executed");
         return null;
     }
 
@@ -87,6 +93,7 @@ public class ClientDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Find all clients executed");
         return resultList;
     }
 

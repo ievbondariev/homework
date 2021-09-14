@@ -2,12 +2,16 @@ package daos;
 
 import database.Database;
 import entities.Account;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDAO {
+
+    private  static final Logger logger = Logger.getLogger(AccountDAO.class);
+
     private static final String ACCOUNTS = "SELECT * FROM accounts";
     private static final String INSERT_TO_ACCOUNTS = "INSERT INTO accounts (client_id, number, value) VALUES(?,?,?)";
     private static final String DELETE_FROM_ACCOUNTS = "DELETE from accounts where id=?";
@@ -34,6 +38,7 @@ public class AccountDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Find all accounts executed");
         return resultList;
     }
 
@@ -88,6 +93,7 @@ public class AccountDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Find by value executed");
         return resultList;
     }
 }
