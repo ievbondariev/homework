@@ -22,6 +22,7 @@ public class ClientStatusDAO {
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(CLIENT_STATUSES)) {
+            logger.debug("Connected with database");
 
             while (resultSet.next()) {
                 ClientStatus clientStatus = new ClientStatus();

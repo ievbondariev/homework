@@ -25,6 +25,7 @@ public class AccountDAO {
             Connection connection = Database.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(ACCOUNTS);
+            logger.debug("Connected with database");
             while (resultSet.next()) {
                 Account account = new Account();
                 account.setId(resultSet.getInt("id"));
@@ -45,6 +46,7 @@ public class AccountDAO {
     public void insert(Account account) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_TO_ACCOUNTS)) {
+            logger.debug("Connected with database");
 
             statement.setInt(1, account.getClientId());
             statement.setString(2, account.getNumber());
@@ -54,29 +56,35 @@ public class AccountDAO {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+        logger.debug("Insert account executed");
     }
 
     public void delete(Integer id) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_FROM_ACCOUNTS)) {
+            logger.debug("Connected with database");
             statement.setInt(1, id);
             statement.execute();
 
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+        logger.debug("Delete account executed");
     }
 
     public void update(Account account) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_ACCOUNTS)) {
+            logger.debug("Connected with database");
             statement.setInt(1, account.getClientId());
             statement.setString(2, account.getNumber());
             statement.setDouble(3, account.getValue());
             statement.execute();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Update account executed");
     }
 
     public List<String> findByValues(double value) {
@@ -84,6 +92,7 @@ public class AccountDAO {
         try {
             Connection connection = Database.getConnection();
             PreparedStatement statement = connection.prepareStatement(FIND_BY_VALUE);
+            logger.debug("Connected with database");
             statement.setDouble(1, value);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {

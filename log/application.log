@@ -1,7 +1,24 @@
-2021-09-14 00:53:34 DEBUG AccountDAO:96 - Find by value executed
-2021-09-14 00:53:34 DEBUG ClientDAO:46 - Join client executed
-2021-09-14 00:53:34 INFO  Main:24 - Class works
-2021-09-14 00:54:13 DEBUG ClientDAO:96 - Find all clients executed
-2021-09-14 00:54:13 DEBUG AccountDAO:96 - Find by value executed
-2021-09-14 00:54:13 DEBUG ClientDAO:46 - Join client executed
-2021-09-14 00:54:13 INFO  Main:24 - Class works
+2021-09-15 15:02:46 DEBUG ClientDAO:82 - Connected with database
+2021-09-15 15:02:46 DEBUG ClientDAO:98 - Find all clients executed
+2021-09-15 15:02:46 DEBUG ClientDAO:53 - Connected with database
+2021-09-15 15:02:46 DEBUG ClientDAO:66 - Find by phone executed
+2021-09-15 15:02:46 DEBUG AccountDAO:28 - Connected with database
+2021-09-15 15:02:46 DEBUG AccountDAO:42 - Find all accounts executed
+2021-09-15 15:02:46 DEBUG AccountDAO:95 - Connected with database
+2021-09-15 15:02:46 DEBUG AccountDAO:105 - Find by value executed
+2021-09-15 15:02:46 DEBUG ClientDAO:30 - Connected with database
+2021-09-15 15:02:46 DEBUG ClientDAO:46 - Join client executed
+2021-09-15 15:02:46 INFO  Main:24 - MainClass works
+2021-09-15 15:03:03 ERROR Database:23 - Connection to server refused
+2021-09-15 15:03:03 ERROR Database:25 - Check connection with postgres
+2021-09-15 15:03:14 DEBUG ClientDAO:82 - Connected with database
+2021-09-15 15:03:14 DEBUG ClientDAO:98 - Find all clients executed
+2021-09-15 15:03:14 DEBUG ClientDAO:53 - Connected with database
+2021-09-15 15:03:14 DEBUG ClientDAO:66 - Find by phone executed
+2021-09-15 15:03:14 DEBUG AccountDAO:28 - Connected with database
+2021-09-15 15:03:14 DEBUG AccountDAO:42 - Find all accounts executed
+2021-09-15 15:03:14 DEBUG AccountDAO:95 - Connected with database
+2021-09-15 15:03:14 DEBUG AccountDAO:105 - Find by value executed
+2021-09-15 15:03:14 DEBUG ClientDAO:30 - Connected with database
+2021-09-15 15:03:14 DEBUG ClientDAO:46 - Join client executed
+2021-09-15 15:03:14 INFO  Main:24 - MainClass works

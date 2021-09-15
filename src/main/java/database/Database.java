@@ -20,8 +20,9 @@ public class Database {
             return DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            logger.error("Connection to server refused");
         }
-        logger.error("No connections with database");
+        logger.error("Check connection with postgres");
         return null;
     }
 }

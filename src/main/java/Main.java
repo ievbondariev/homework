@@ -16,11 +16,11 @@ public class Main {
         clientDAO.findByPhone(380958089097L);
 //
         AccountDAO accountDAO = new AccountDAO();
-//        accountDAO.findAllAccounts();
+        accountDAO.findAllAccounts();
         accountDAO.findByValues(100000);
 //
         clientDAO.joinClient();
 
-        logger.info("Class works");
+        logger.info("MainClass works");
     }
 }

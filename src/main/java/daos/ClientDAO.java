@@ -3,7 +3,6 @@ package daos;
 import database.Database;
 import entities.Account;
 import entities.Client;
-import entities.ClientStatus;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -28,6 +27,7 @@ public class ClientDAO {
             Connection connection = Database.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(INNER_JOIN_CLIENTS);
+            logger.debug("Connected with database");
             while (resultSet.next()) {
                 Client client = new Client();
                 Account account = new Account();
@@ -50,6 +50,7 @@ public class ClientDAO {
     public Client findByPhone(long phone) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_PHONE)) {
+            logger.debug("Connected with database");
             statement.setLong(1, phone);
             ResultSet resultSet = statement.executeQuery();
 
@@ -62,12 +63,12 @@ public class ClientDAO {
                 client.setAbout(resultSet.getString("about"));
                 client.setAge(resultSet.getInt("age"));
                 System.out.println(client);
+                logger.debug("Find by phone executed");
                 return client;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        logger.debug("Find by phone executed");
         return null;
     }
 
@@ -78,6 +79,7 @@ public class ClientDAO {
             Connection connection = Database.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(CLIENTS);
+            logger.debug("Connected with database");
             while (resultSet.next()) {
                 Client client = new Client();
                 client.setId(resultSet.getInt("id"));
@@ -100,6 +102,7 @@ public class ClientDAO {
     public void insert(Client client) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_TO_CLIENTS)) {
+            logger.debug("Connected with database");
 
             statement.setString(1, client.getName());
             statement.setString(2, client.getEmail());
@@ -110,22 +113,26 @@ public class ClientDAO {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+        logger.debug("Insert client executed");
     }
 
     public void delete(Integer id) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_FROM_CLIENTS)) {
+            logger.debug("Connected with database");
             statement.setInt(1, id);
             statement.execute();
 
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+        logger.debug("Delete client executed");
     }
 
     public void update(Client client) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_CLIENTS)) {
+            logger.debug("Connected with database");
             statement.setString(1, client.getName());
             statement.setString(2, client.getEmail());
             statement.setLong(3, client.getPhone());
@@ -136,11 +143,13 @@ public class ClientDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Update client executed");
     }
 
     public Client findById(int id) {
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_ID)) {
+            logger.debug("Connected with database");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
 
@@ -153,6 +162,7 @@ public class ClientDAO {
                 client.setAbout(resultSet.getString("about"));
                 client.setAge(resultSet.getInt("age"));
                 System.out.println(client);
+                logger.debug("Find client by id executed");
                 return client;
             }
         } catch (SQLException e) {
