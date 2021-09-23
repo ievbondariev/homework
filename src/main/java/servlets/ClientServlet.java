@@ -16,7 +16,8 @@ public class ClientServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(ClientServlet.class);
 
-    private final ClientService clientService = new ClientService();
+    private  final ClientDAO clientDao = new ClientDAO();
+    private final ClientService clientService = new ClientService(clientDao);
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("clients", clientService.findAllClients());

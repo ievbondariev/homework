@@ -2,6 +2,7 @@ package org.hillel;
 
 import daos.AccountDAO;
 import dto.AccountDto;
+import entities.Account;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,24 +22,24 @@ public class AccountsServiceTest {
     public static class AccountServiceTest {
 
         @Mock
-        private AccountDAO accountDAO;
+        private AccountDAO accountDao;
         private AccountService accountService;
 
         @BeforeEach
         public void setUp() {
-            accountService = new AccountService(accountDAO);
+            this.accountService = new AccountService(accountDao);
         }
 
         @Test
         public void findAllAccounts() {
 
-            AccountDto accountDto = new AccountDto();
-            accountDto.setId(1);
-            accountDto.setClientId(1);
-            accountDto.setNumber("UA2625");
-            accountDto.setValue(5000);
+            Account account = new Account();
+            account.setId(1);
+            account.setClientId(1);
+            account.setNumber("UA2625");
+            account.setValue(5000);
 
-            when(accountService.findAllAccounts()).thenReturn(Collections.singletonList(accountDto));
+            when(accountDao.findAllAccounts()).thenReturn(Collections.singletonList(account));
 
             List<AccountDto> actualResult = accountService.findAllAccounts();
 

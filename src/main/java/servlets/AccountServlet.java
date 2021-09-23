@@ -1,5 +1,6 @@
 package servlets;
 
+import daos.AccountDAO;
 import org.apache.log4j.Logger;
 import services.AccountService;
 
@@ -13,7 +14,8 @@ public class AccountServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(AccountServlet.class);
 
-    private final AccountService accountService = new AccountService();
+    private final AccountDAO accountDao = new AccountDAO();
+    private final AccountService accountService = new AccountService(accountDao);
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("accounts", accountService.findAllAccounts());

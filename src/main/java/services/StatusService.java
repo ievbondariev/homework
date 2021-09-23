@@ -14,8 +14,8 @@ public class StatusService {
 
     private final StatusDAO statusDAO;
 
-    public StatusService() {
-        statusDAO = new StatusDAO();
+    public StatusService(StatusDAO statusDao) {
+        this.statusDAO = statusDao;
         logger.debug("StatusDao configured");
     }
 

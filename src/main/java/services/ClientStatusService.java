@@ -12,19 +12,15 @@ public class ClientStatusService {
 
     private static final Logger logger = Logger.getLogger(ClientStatusService.class);
 
-    private ClientStatusDAO clientStatusDAO;
+    private ClientStatusDAO clientStatusDao;
 
-    public ClientStatusService(ClientStatusDAO clientStatusDAO) {
-        this.clientStatusDAO = clientStatusDAO;
+    public ClientStatusService(ClientStatusDAO clientStatusDao) {
+        this.clientStatusDao = clientStatusDao;
         logger.debug("ClientStatusDao configured");
     }
 
-    public ClientStatusService() {
-
-    }
-
     public List<ClientStatusDto> findAllClientStatus() {
-        List<ClientStatus> clientStatuses = clientStatusDAO.findAllClientStatus();
+        List<ClientStatus> clientStatuses = clientStatusDao.findAllClientStatus();
         List<ClientStatusDto> clientStatusDtos = new ArrayList<>();
 
         for (ClientStatus clientStatus : clientStatuses) {

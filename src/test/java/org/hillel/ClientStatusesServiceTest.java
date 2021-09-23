@@ -1,7 +1,9 @@
 package org.hillel;
 
+
 import daos.ClientStatusDAO;
 import dto.ClientStatusDto;
+import entities.ClientStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,29 +20,26 @@ import static org.mockito.Mockito.when;
 public class ClientStatusesServiceTest {
 
     @ExtendWith(MockitoExtension.class)
-    public class ClientStatusServiceTest {
+    public static class ClientStatusServiceTest {
 
         @Mock
-        private ClientStatusService clientStatusService;
-        private ClientStatusDAO clientStatusDAO;
+        private ClientStatusDAO clientStatusDao;
 
-        public ClientStatusServiceTest(ClientStatusDAO clientStatusDAO) {
-            this.clientStatusDAO = clientStatusDAO;
-        }
+        private ClientStatusService clientStatusService;
 
         @BeforeEach
         public void setup() {
-            clientStatusService = new ClientStatusService(clientStatusDAO);
+            clientStatusService = new ClientStatusService(clientStatusDao);
         }
 
         @Test
         public void findAllClientStatuses() {
 
-            ClientStatusDto clientStatusDto = new ClientStatusDto();
-            clientStatusDto.setClientId(1);
-            clientStatusDto.setStatusId(1);
+            ClientStatus clientStatus = new ClientStatus();
+            clientStatus.setClientId(1);
+            clientStatus.setStatusId(1);
 
-            when(clientStatusService.findAllClientStatus()).thenReturn(Collections.singletonList(clientStatusDto));
+            when(clientStatusDao.findAllClientStatus()).thenReturn(Collections.singletonList(clientStatus));
 
             List<ClientStatusDto> actualResult = clientStatusService.findAllClientStatus();
             assertEquals(1, actualResult.size());
@@ -49,3 +48,4 @@ public class ClientStatusesServiceTest {
         }
     }
 }
+

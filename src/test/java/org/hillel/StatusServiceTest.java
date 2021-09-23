@@ -2,6 +2,7 @@ package org.hillel;
 
 import daos.StatusDAO;
 import dto.StatusDto;
+import entities.Status;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,23 +22,23 @@ public class StatusServiceTest {
     public static class StatusesServiceTest {
 
         @Mock
-        private StatusDAO statusDAO;
+        private StatusDAO statusDao;
         private StatusService statusService;
 
         @BeforeEach
         public void setup() {
-            statusService = new StatusService();
+            statusService = new StatusService(statusDao);
         }
 
         @Test
         public void findAllStatuses() {
 
-            StatusDto statusDto = new StatusDto();
-            statusDto.setId(1);
-            statusDto.setAlias("premium");
-            statusDto.setDescription("card");
+            Status status = new Status();
+            status.setId(1);
+            status.setAlias("premium");
+            status.setDescription("card");
 
-            when(statusService.findAllStatuses()).thenReturn(Collections.singletonList(statusDto));
+            when(statusDao.findAllStatuses()).thenReturn(Collections.singletonList(status));
 
             List<StatusDto> actualResult = statusService.findAllStatuses();
             assertEquals(1, actualResult.size());

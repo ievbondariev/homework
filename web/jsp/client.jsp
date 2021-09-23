@@ -9,14 +9,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Clients</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Clients from Postgres</title>
 </head>
 <body>
-<a href="/app">Main page</a> <br>
-
-<c:forEach items="${clients}" var="item">
-    ${item.id}, ${item.name}, ${item.email}, ${item.phone}, ${item.about}, ${item.age} <br>
-</c:forEach>
-<a href="/app/clientStatus">ClientStatus</a> <br>
+<a href="/app"><h4>Main page</h4></a> <br>
+<style>
+    body {
+        background-image: url(https://oir.mobi/uploads/posts/2021-03/1616996910_11-p-fon-priroda-razmitii-11.jpg);
+        background-color: #c7b39b;
+    }
+</style>
+<font size="3" color="#8a2be2" face="Times New Roman"></font>
+<div align="left">
+    <h3>CLIENTS</h3>
+    </form>
+    <table border="1" cellpadding="5" bgcolor="#ffd700">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>About</th>
+            <th>Age</th>
+        </tr>
+        <c:forEach items="${clients}" var="item">
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.email}</td>
+                <td>${item.phone}</td>
+                <td>${item.about}</td>
+                <td>${item.age}</td>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

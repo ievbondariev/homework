@@ -1,5 +1,6 @@
 package servlets;
 
+import daos.ClientStatusDAO;
 import services.ClientStatusService;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,8 @@ public class ClientStatusServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(ClientStatusServlet.class);
 
-    private final ClientStatusService clientStatusService = new ClientStatusService();
+    private final ClientStatusDAO clientStatusDao = new ClientStatusDAO();
+    private final ClientStatusService clientStatusService = new ClientStatusService(clientStatusDao);
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("clientStatus", clientStatusService.findAllClientStatus());

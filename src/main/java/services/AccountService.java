@@ -14,12 +14,9 @@ public class AccountService {
 
     private AccountDAO accountDao;
 
-    public AccountService(AccountDAO accountDAO) {
-        this.accountDao = accountDAO;
+    public AccountService(AccountDAO accountDao) {
+        this.accountDao = accountDao;
         logger.debug("AccountDao configured");
-    }
-
-    public AccountService() {
     }
 
     public List<AccountDto> findAllAccounts() {

@@ -2,6 +2,7 @@ package org.hillel;
 
 import daos.ClientDAO;
 import dto.ClientDto;
+import entities.Client;
 import services.ClientService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -21,26 +22,26 @@ public class ClientsServiceTest {
     public static class ClientServiceTest {
 
         @Mock
-        private ClientDAO clientDAO;
+        private ClientDAO clientDao;
         private ClientService clientService;
 
         @BeforeEach
         public void setUp() {
-            clientService = new ClientService(clientDAO);
+            clientService = new ClientService(clientDao);
         }
 
         @Test
         public void findAllClients() {
 
-            ClientDto clientDto = new ClientDto();
-            clientDto.setId(1);
-            clientDto.setName("Name");
-            clientDto.setEmail("1@ukr.net");
-            clientDto.setPhone(380958089097L);
-            clientDto.setAbout("client");
-            clientDto.setAge(20);
+            Client client = new Client();
+            client.setId(1);
+            client.setName("Name");
+            client.setEmail("1@ukr.net");
+            client.setPhone(380958089097L);
+            client.setAbout("client");
+            client.setAge(20);
 
-            when(clientService.findAllClients()).thenReturn(Collections.singletonList(clientDto));
+            when(clientDao.findAllClients()).thenReturn(Collections.singletonList(client));
 
             List<ClientDto> actualResult = clientService.findAllClients();
 

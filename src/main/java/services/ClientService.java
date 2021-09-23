@@ -14,13 +14,9 @@ public class ClientService {
 
     private  ClientDAO clientDao;
 
-    public ClientService(ClientDAO clientDAO) {
-        this.clientDao = clientDAO;
+    public ClientService(ClientDAO clientDao) {
+        this.clientDao = clientDao;
         logger.debug("ClientDao configured");
-    }
-
-    public ClientService() {
-//        this.clientDAO = new ClientDAO();
     }
 
     public List<ClientDto> findAllClients() {
