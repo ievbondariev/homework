@@ -10,7 +10,7 @@ import java.util.*;
 
 public class ClientDAO {
 
-    private  static final Logger logger = Logger.getLogger(ClientDAO.class);
+    private static final Logger logger = Logger.getLogger(ClientDAO.class);
 
     private static final String CLIENTS = "SELECT * FROM clients order by id";
     private static final String INSERT_TO_CLIENTS = "INSERT INTO clients (name, email, phone, about) VALUES(?,?,?,?)";

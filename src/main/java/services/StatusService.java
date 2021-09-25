@@ -1,9 +1,13 @@
 package services;
 
+import daos.HibernateUtil;
 import daos.StatusDAO;
 import dto.StatusDto;
+import entities.Account;
 import entities.Status;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +36,57 @@ public class StatusService {
         }
         logger.debug("StatusService configured");
         return statusDtos;
+    }
+
+    public void saveStatus(Status status) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(status);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteStatus(Status status) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.delete(status);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    public void updateStatus(Status status) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.update(status);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    public void findStatusById(int id) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            System.out.println(session.createQuery("from Status where id =" + id).getResultList());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

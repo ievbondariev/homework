@@ -12,11 +12,11 @@
     <title>Accounts</title>
 </head>
 <body>
-<a href="/app">Main page</a> <br>
+<a href="/app"><font size="5" color="red">Main page</font></a> <br>
 
 <c:forEach items="${accounts}" var="item">
     ${item.id}, ${item.clientId}, ${item.number}, ${item.value} <br>
 </c:forEach>
-<a href="/app/statuses">Statuses</a> <br>
+<a href="/app/statuses"><font size="5" color="#8a2be2">Statuses</font></a> <br>
 </body>
 </html>

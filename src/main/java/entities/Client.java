@@ -1,13 +1,29 @@
 package entities;
 
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="clients")
 public class Client {
+
+    @Id
+    @Column(name="id")
     private int id;
+    @Column(name="name")
     private String name;
+    @Column(name="email")
     private String email;
+    @Column(name="phone")
     private long phone;
+    @Column(name="about")
     private String about;
+    @Column(name="age")
     private int age;
+
+    public Client() {
+    }
 
     public int getAge() {
         return age;

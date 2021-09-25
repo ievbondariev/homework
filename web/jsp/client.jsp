@@ -13,7 +13,7 @@
     <title>Clients from Postgres</title>
 </head>
 <body>
-<a href="/app"><h4>Main page</h4></a> <br>
+<a href="/app"><font size="5" color="red">Main page</font></a> <br>
 <style>
     body {
         background-image: url(https://oir.mobi/uploads/posts/2021-03/1616996910_11-p-fon-priroda-razmitii-11.jpg);
@@ -46,5 +46,6 @@
         </c:forEach>
     </table>
 </div>
+<a href="/app/accounts"><font size="5" color="#8a2be2">Accounts</font></a> <br>
 </body>
 </html>

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AccountDAO {
 
-    private  static final Logger logger = Logger.getLogger(AccountDAO.class);
+    private static final Logger logger = Logger.getLogger(AccountDAO.class);
 
     private static final String ACCOUNTS = "SELECT * FROM accounts";
     private static final String INSERT_TO_ACCOUNTS = "INSERT INTO accounts (client_id, number, value) VALUES(?,?,?)";

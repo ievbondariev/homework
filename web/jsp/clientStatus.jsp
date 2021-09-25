@@ -12,7 +12,7 @@
     <title>ClientStatus</title>
 </head>
 <body>
-<a href="/app">Main page</a> <br>
+<a href="/app"><font size="5" color="red">Main page</font></a> <br>
 
 <c:forEach items="${clientStatus}" var="item">
     ${item.clientId}, ${item.statusId} <br>
