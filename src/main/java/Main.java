@@ -4,9 +4,6 @@ import daos.StatusDAO;
 import entities.Client;
 import entities.Status;
 import org.apache.log4j.Logger;
-import services.AccountService;
-import services.ClientService;
-import services.StatusService;
 
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class);
@@ -14,12 +11,9 @@ public class Main {
     public static void main(String[] args) {
 
         ClientDAO clientDAO = new ClientDAO();
-//        clientDAO.findByPhone(380958089097L);
-//        clientDAO.joinClient();
 
-        ClientService clientService = new ClientService(clientDAO);
-        clientService.findClientById(6);
-        clientService.findClientByPhone(380958089097L);
+        clientDAO.findClientById(6);
+        clientDAO.findClientByPhone(380958089097L);
 
         Client client = new Client();
         client.setId(11);
@@ -27,25 +21,22 @@ public class Main {
         client.setEmail("uuu@ukr.net");
         client.setAge(21);
         client.setAbout("new");
-        clientService.saveClient(client);
+        clientDAO.saveClient(client);
         client.setId(11);
-        clientService.deleteClient(client);
-//        clientDAO.findAllClients();
+        clientDAO.deleteClient(client);
+//        clientDAO.findAllClients().forEach(System.out::println);
 
         AccountDAO accountDAO = new AccountDAO();
-//        accountDAO.findAllAccounts();
-//        accountDAO.findByValues(100000);
-        AccountService accountService = new AccountService(accountDAO);
-        accountService.findAccountById(5);
+//        accountDAO.findAllAccounts().forEach(System.out::println);
+        accountDAO.findAccountById(5);
 
         StatusDAO statusDAO = new StatusDAO();
-        StatusService statusService = new StatusService(statusDAO);
         Status status = new Status();
         status.setId(3);
         status.setAlias("BUSINESS");
         status.setDescription("MASTERCARD PLATINUM");
-        statusService.updateStatus(status);
-        statusService.findStatusById(3);
+        statusDAO.updateStatus(status);
+        statusDAO.findStatusById(3);
 
         logger.info("MainClass works");
     }
