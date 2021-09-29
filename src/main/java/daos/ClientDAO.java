@@ -4,6 +4,7 @@ import entities.Client;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import util.HibernateUtil;
 
 import java.util.*;
 
@@ -16,7 +17,7 @@ public class ClientDAO {
             logger.debug("Connected with database");
             System.out.println("Reading of records from the table");
             logger.debug("Find all clients executed");
-            return session.createQuery("from Client").list();
+            return session.createQuery("from Client order by id").list();
         }
     }
 

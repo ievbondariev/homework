@@ -4,6 +4,7 @@ import entities.Status;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import util.HibernateUtil;
 
 import java.util.List;
 

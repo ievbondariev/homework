@@ -1,17 +1,10 @@
 package entities;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="accounts")
 public class Account {
@@ -20,8 +13,11 @@ public class Account {
     private int id;
     @Column(name="client_id")
     private int clientId;
-    @Column(name="number")
     private  String number;
-    @Column(name="value")
     private double value;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="account_id")
+    private CardNumber cardNumber;
+
 }

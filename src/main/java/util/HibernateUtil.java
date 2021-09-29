@@ -1,9 +1,6 @@
-package daos;
+package util;
 
-import entities.Account;
-import entities.Client;
-import entities.ClientStatus;
-import entities.Status;
+import entities.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -30,13 +27,15 @@ public class HibernateUtil {
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-//                settings.put(Environment.HBM2DDL_AUTO, "create-drop");
+                settings.put(Environment.HBM2DDL_AUTO, "update");
 
                 configuration.setProperties(settings);
 
+                configuration.addAnnotatedClass(Card.class);
                 configuration.addAnnotatedClass(Client.class);
                 configuration.addAnnotatedClass(Account.class);
                 configuration.addAnnotatedClass(Status.class);
+                configuration.addAnnotatedClass(CardNumber.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

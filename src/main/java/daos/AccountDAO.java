@@ -4,6 +4,7 @@ import entities.Account;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import util.HibernateUtil;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class AccountDAO {
             logger.debug("Connected with database");
             System.out.println("Reading of records from the table");
             logger.debug("Find all accounts executed");
-            return session.createQuery("from Account").list();
+            return session.createQuery("from Account order by id").list();
         }
     }
 
