@@ -24,7 +24,7 @@
 <div align="left">
     <h3>CLIENTS</h3>
     </form>
-    <table border="1" cellpadding="5" bgcolor="#ffd700">
+    <table  cellpadding="5" bgcolor="#b0c4de">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -46,6 +46,17 @@
         </c:forEach>
     </table>
 </div>
+
+<form action="clients" method="post">
+<%--    ID: <input type="number" name="id"> <br>--%>
+    Name: <input type="text" name="name"> <br>
+    Phone: <input type="number" name="phone"> <br>
+    EMail: <input type="email" name="email"> <br>
+    Age: <input type="number" name="age"> <br>
+    <input type="submit">
+</form>
+
+<br>
 <a href="/app/accounts"><font size="5" color="#8a2be2">Accounts</font></a> <br>
 </body>
 </html>

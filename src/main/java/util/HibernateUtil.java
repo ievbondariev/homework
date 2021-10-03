@@ -29,6 +29,8 @@ public class HibernateUtil {
 
                 settings.put(Environment.HBM2DDL_AUTO, "update");
 
+//                settings.put(Environment.HBM2DDL_AUTO, "create");
+
                 configuration.setProperties(settings);
 
                 configuration.addAnnotatedClass(Card.class);

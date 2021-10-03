@@ -38,5 +38,17 @@ public class ClientService {
         logger.debug("ClientService started");
         return clientDtos;
     }
+
+    public void save(ClientDto clientDto) {
+        Client client = new Client();
+        client.setId(clientDto.getId());
+        client.setName(clientDto.getName());
+        client.setEmail(clientDto.getEmail());
+        client.setPhone(clientDto.getPhone());
+        client.setAbout(clientDto.getAbout());
+        client.setAge(clientDto.getAge());
+
+        clientDao.saveClient(client);
+    }
 }
 

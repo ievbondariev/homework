@@ -4,10 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -16,10 +14,20 @@ import javax.persistence.Table;
 @Table(name="statuses")
 public class Status {
     @Id
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name="alias")
     private String alias;
-    @Column(name="description")
     private String description;
+
+    @ManyToMany(mappedBy = "statuses")
+    private Set<Client> clients;
+
+    @Override
+    public String toString() {
+        return "Status{" +
+                "id=" + id +
+                ", alias='" + alias + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

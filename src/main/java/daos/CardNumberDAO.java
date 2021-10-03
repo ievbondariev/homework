@@ -12,11 +12,11 @@ public class CardNumberDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try (session) {
             System.out.println("Reading of records from the table");
-            return session.createQuery("FROM CardNumber order by id").list();
+            return session.createQuery("FROM CardNumber").getResultList();
         }
     }
 
-    public void saveCardNumber(CardNumber cardNumber) {
+    public void save(CardNumber cardNumber) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.save(cardNumber);

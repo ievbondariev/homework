@@ -13,7 +13,13 @@
 </head>
 <body>
 <a href="/app"><font size="5" color="red">Main page</font></a> <br>
-
+<style>
+    body {
+        background-image: url(https://oir.mobi/uploads/posts/2021-03/1616996910_11-p-fon-priroda-razmitii-11.jpg);
+        background-color: #c7b39b;
+    }
+</style>
+<h3>CLIENT STATUS</h3>
 <c:forEach items="${clientStatus}" var="item">
     ${item.clientId}, ${item.statusId} <br>
 </c:forEach>

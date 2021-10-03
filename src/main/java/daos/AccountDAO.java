@@ -17,11 +17,11 @@ public class AccountDAO {
             logger.debug("Connected with database");
             System.out.println("Reading of records from the table");
             logger.debug("Find all accounts executed");
-            return session.createQuery("from Account order by id").list();
+            return session.createQuery("from Account").list();
         }
     }
 
-    public void saveAccount(Account account) {
+    public void save(Account account) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.save(account);
@@ -29,7 +29,7 @@ public class AccountDAO {
         }
     }
 
-    public void deleteAccount(Account account) {
+    public void delete(Account account) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.delete(account);
@@ -37,7 +37,7 @@ public class AccountDAO {
         }
     }
 
-    public void updateAccount(Account account) {
+    public void update(Account account) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.update(account);
