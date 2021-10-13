@@ -6,11 +6,11 @@
 
     <servlet>
         <servlet-name>AccountServlet</servlet-name>
-        <servlet-class>servlets.AccountServlet</servlet-class>
+        <servlet-class>com.hillel.servlets.AccountServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ClientStatusServlet</servlet-name>
-        <servlet-class>servlets.ClientStatusServlet</servlet-class>
+        <servlet-class>com.hillel.servlets.ClientStatusServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

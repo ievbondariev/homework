@@ -1,14 +1,14 @@
 package org.hillel;
 
-import daos.AccountDAO;
-import dto.AccountDto;
-import entities.Account;
+import com.hillel.daos.AccountDAO;
+import com.hillel.dto.AccountDto;
+import com.hillel.entities.Account;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import services.AccountService;
+import com.hillel.services.AccountService;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,14 +27,14 @@ public class AccountsServiceTest {
 
         @BeforeEach
         public void setUp() {
-            this.accountService = new AccountService(accountDao);
+            this.accountService = new AccountService();
         }
 
         @Test
         public void findAllAccounts() {
 
             Account account = new Account();
-            account.setId(1);
+            account.setId(1L);
             account.setClientId(1);
             account.setNumber("UA2625");
             account.setValue(5000);

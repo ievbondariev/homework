@@ -13,7 +13,7 @@
     <title>Clients from Postgres</title>
 </head>
 <body>
-<a href="/app"><font size="5" color="red">Main page</font></a> <br>
+<a href="/app"><font size="5" color="red">com.hillel.Main page</font></a> <br>
 <style>
     body {
         background-image: url(https://oir.mobi/uploads/posts/2021-03/1616996910_11-p-fon-priroda-razmitii-11.jpg);

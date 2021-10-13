@@ -4,7 +4,7 @@
     <title>Database</title>
 </head>
 <body>
-<font size="4" color="#8a2be2" face="Times New Roman"><h2>Main page</h2></font>
+<font size="4" color="#8a2be2" face="Times New Roman"><h2>com.hillel.Main page</h2></font>
 <style>
     body { background: url(https://cameralabs.org/media/lab18/12/26-1/Pobediteli-fotokonkursa-Dikaya-priroda-Rossii-2018_12.jpg); }
 </style>

@@ -1,9 +1,9 @@
 package org.hillel;
 
-import daos.ClientDAO;
-import dto.ClientDto;
-import entities.Client;
-import services.ClientService;
+import com.hillel.daos.ClientDAO;
+import com.hillel.dto.ClientDto;
+import com.hillel.entities.Client;
+import com.hillel.services.ClientService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,14 +27,14 @@ public class ClientsServiceTest {
 
         @BeforeEach
         public void setUp() {
-            clientService = new ClientService(clientDao);
+            clientService = new ClientService();
         }
 
         @Test
         public void findAllClients() {
 
             Client client = new Client();
-            client.setId(1);
+            client.setId(1L);
             client.setName("Name");
             client.setEmail("1@ukr.net");
             client.setPhone(380958089097L);

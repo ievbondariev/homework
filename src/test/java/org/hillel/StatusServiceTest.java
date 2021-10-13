@@ -1,14 +1,14 @@
 package org.hillel;
 
-import daos.StatusDAO;
-import dto.StatusDto;
-import entities.Status;
+import com.hillel.daos.StatusDAO;
+import com.hillel.dto.StatusDto;
+import com.hillel.entities.Status;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import services.StatusService;
+import com.hillel.services.StatusService;
 
 import java.util.Collections;
 import java.util.List;
